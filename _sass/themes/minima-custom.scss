@@ -1,22 +1,29 @@
 @charset "utf-8";
 
-// Define defaults for each variable.
+// google web fonts
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic);
+$source-sans:      'Source Sans Pro', $sans !default;
 
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+// Define defaults for each variable.
+$base-font-family: $source-sans !default;
 $base-font-size:   16px !default;
-$base-font-weight: 400 !default;
+$base-font-weight: 300 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
 
+$title-font-family: $base-font-family !default;
+
 $spacing-unit:     30px !default;
 
-$text-color:       #111 !default;
+$text-color:       $gray !default;
 $background-color: #fdfdfd !default;
 $brand-color:      #2a7ae2 !default;
 
 $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
+
+$code-color-bg:    #f7f7fe !default;
 
 // Width of the content area
 $content-width:    800px !default;
