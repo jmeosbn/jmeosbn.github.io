@@ -36,8 +36,11 @@ author:             Jamie Osborne
 # permalink style to use for posts
 # permalink:          /:title/
 
+# posts pagination
+paginate:           5
+
 # custom marker to end excerpt
-# excerpt_separator:  "\n\n\n"
+excerpt_separator:  "\n\n\n"
 
 # import theme
 theme: minima
@@ -94,4 +97,5 @@ exclude:
 # enable gems for offline build
 gems:
   - jekyll-feed
+  - jekyll-paginate
   - jekyll-default-layout
