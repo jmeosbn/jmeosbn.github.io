@@ -148,7 +148,7 @@ pre,
 code,
 tt {
   @extend .mono;
-  @include relative-font-size(0.9375);
+  @include relative-font-size(0.85);
   border: 1px solid $grey-color-light;
   border-radius: 3px;
   background-color: $code-color-bg;
