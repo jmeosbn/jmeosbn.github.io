@@ -18,10 +18,10 @@
 # Jekyll's data files feature for any data you need to update frequently.
 
 # site main title
-title:              Your awesome title
+title:              notes from userspace
 
 # the base hostname & protocol for your site, e.g. http://example.com
-url:                https://jekyll.github.io
+url:                https://jmeosbn.github.io
 
 # the subpath of your site, e.g. /blog
 baseurl:            ""
