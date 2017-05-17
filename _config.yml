@@ -79,3 +79,7 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
+
+# enable gems for offline build
+gems:
+  - jekyll-feed
