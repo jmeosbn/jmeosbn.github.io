@@ -1,0 +1,7 @@
+{% assign latest_date = page.updated | default: post.updated | default: page.date | default: post.date %}
+{% if latest_date %}
+      <time datetime="{{ latest_date | date_to_xmlschema }}" itemprop="datePublished">
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        {{ latest_date | date: date_format }}
+      </time>
+{% endif %}
