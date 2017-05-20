@@ -34,10 +34,11 @@ author:             Jamie Osborne
 #                     write (multiline) description here
 
 # permalink style to use for posts
-# permalink:          /:title/
+permalink:          /blog/:title/
 
 # posts pagination
 paginate:           5
+paginate_path:      /blog/page:num/
 
 # custom marker to end excerpt
 excerpt_separator:  "\n\n\n"
