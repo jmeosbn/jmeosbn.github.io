@@ -94,3 +94,4 @@ exclude:
 # enable gems for offline build
 gems:
   - jekyll-feed
+  - jekyll-default-layout
