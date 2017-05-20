@@ -26,17 +26,12 @@ url:                https://jekyll.github.io
 # the subpath of your site, e.g. /blog
 baseurl:            ""
 
-# site description
-description: > # this means to ignore newlines until next setting
-  Included in head meta and rss feed.
-  Also shown in header/footer/home depending upon theme.
+# site info
+author:             Jamie Osborne
 
-# usernames for social media
-twitter_username:   jekyllrb
-github_username:    jekyll
-
-# owner email
-email:              your-email@domain.com
+# '>' ignore newlines until next setting
+# description:        >
+#                     write (multiline) description here
 
 # permalink style to use for posts
 # permalink:          /:title/
@@ -51,6 +46,22 @@ theme: minima
 minima:
   date_format:      "%b %-d, %Y"
   # refer to http://shopify.github.io/liquid/filters/date/
+
+# Includes an icon in the footer for each username you enter
+footer-links:
+  email:
+  show-rss:         yes
+  twitter:          jmeosbn
+  github:           jmeosbn
+  linkedin:
+  flickr:
+  dribbble:
+  facebook:
+  instagram:
+  pinterest:
+  stackoverflow:    # users/50476/bart-kiers
+  youtube:          # channel/<your_long_string> or user/<user-name>
+  googleplus:       # username string that follows plus.google.com/
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up

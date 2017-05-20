@@ -2,4 +2,11 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-@import "minima";
+// default variables
+@import "globals";
+
+// import theme style
+@import "themes/minima-custom";
+
+// put large files last
+@import "support/svg-icons";

@@ -1,0 +1,26 @@
+/**
+ * Global variables for fonts, colors, etc.
+ */
+
+// Colors
+$blue: #4183C4;
+
+// Grays
+$gray: #606060; $darkGray: #333; $lightGray: #eee; $darkerGray: #222;
+
+// The list of standard color keywords is:
+//   aqua, black, blue, fuchsia, gray, green, lime, maroon, navy,
+//   olive, orange, purple, red, silver, teal, white, and yellow.
+
+// Font stacks
+$sans: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$serif: Georgia, Times, "Times New Roman", serif !default;
+$mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
+
+$georgia: Georgia, serif;
+$helvetica: Helvetica, Arial, sans-serif;
+$helveticaNeue: "Helvetica Neue", $helvetica;
+
+//$heading-font-family: "PT Serif", "Georgia", "Helvetica Neue", Arial, sans-serif !default;
+//$header-title-font-family: $heading-font-family !default;
+//$header-subtitle-font-family: $heading-font-family !default;
