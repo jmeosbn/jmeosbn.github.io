@@ -2,7 +2,7 @@
 {% assign get_posts = paginator | default: site %}
 <ul class="post-list">
   {% for post in get_posts.posts %}
-    <li>
+    <li class="post-item">
       <!--
       <span class="post-meta">
         {% include post/date.html %}

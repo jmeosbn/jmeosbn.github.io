@@ -248,3 +248,14 @@
     }
   }
 }
+
+// add border between posts
+.post-item:first-child:before { display: none; }
+.post-item:before {
+    width: 80%;
+    content: " ";
+    display: block;
+    padding-top: 0.5em;
+    margin: 1.5em 10%;
+    border-bottom: 1px solid $lightGray;
+}
