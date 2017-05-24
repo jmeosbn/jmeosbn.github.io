@@ -42,16 +42,13 @@ Clean up the system by removing any unneeded files and private user data.
 # login as root
 sudo -s
 
-# install secure-delete
-apt-get install secure-delete
-
 # clean up downloaded packages, log, caches, etc.
 apt-get clean
 find /var/log -type f -delete
 du -sch /var/cache/*
 df -h /
 
-# backup files from your home directory before removal
+# backup files from home directory before removal
 cd /home/$(logname)
 zip -FS -ry1 /media/KEY/pihome.zip .
 
@@ -59,10 +56,10 @@ zip -FS -ry1 /media/KEY/pihome.zip .
 nano /etc/network/interfaces
 nano /etc/wpa_supplicant/wpa_supplicant.conf
 
-# list of temp files in home dir
+# list of temp files to remove from home dir
 tmpfiles=".*_history .lesshst *.log .cache/ .hushlogin"
-# list of config files in home dir
-dotfiles=".config/ .local/ .git* .gem/ .npm/ .ssh__/"
+# list of config files/dir to remove from home dir
+dotfiles=".local/ .gem/ .npm/ .git__/  .ssh__/"
 # remove transient and config files for root and user home
 for u in /home/$(logname) /root; do echo &&
   cd $u && pwd && rm -rfv $tmpfiles $dotfiles
@@ -82,11 +79,21 @@ dd if=/dev/zero of=/var/swap bs=1M count=100
 mkswap /var/swap
 
 # zero fill the filesystem
-sfill -z -l -l -f -v /boot /
+for vol in /boot /; do
+  dd if=/dev/zero bs=1M of=$vol
+done
 
 # shutdown and remove the card
 poweroff
 ```
+
+<!--
+# install secure-delete
+apt install secure-delete
+
+# zero fill the filesystem
+sfill -z -l -l -f -v /boot /
+ -->
 
 Here's the basic command to copy an SD card into a file. The size is correct for the
 current Raspbian image at [raspberrypi.org](http://raspberrypi.org), and can be confirmed
@@ -95,30 +102,37 @@ by using `fdisk`[^fdisk].
 
 ```sh
 # location and size of SD card
-dev=/dev/rdisk2
-size=2825
+dev=/dev/rdisk2 size=1238
 
-# create the image
-date=$(date +%Y%m%d)
-name=raspbian-minimal
-sudo dd if=$dev of=$name.img count=$size bs=1m
+# image name variables
+date=$(date +%Y%m%d) name=raspbian-minimal
 
-# compress the image using 7z (without BCJ filter)
-7z a -mf- $date-$name.img.7z $name.img
+# make uncompressed dd image
+# sudo dd if=$dev of=$name.img count=$size bs=1m
+
+# make compressed dd image on the fly using 7z
+sudo dd if=$dev count=$size bs=1m | \
+  7za a -mf- $date-$name.img.7z -si$name.img
 ```
+
+
+<!-- # compress the image using 7z (without BCJ filter)
+7z a -mf- $date-$name.img.7z $name.img -->
 
 
 [^fdisk]: Use `fdisk` to view the partition table info of the SD card, then calculate the
     total amount to copy using `bc`:
 
-        # confirm the above values
-        sudo fdisk $dev  # append '-l' flag on linux
+    ```sh
+    # confirm the above values
+    sudo fdisk $dev  # append '-l' flag on linux
 
-        # on OS X, add the last partition start to its size
-        bc -l <<< '(122880+5662720)/2/1024'
+    # on OS X, add the last partition start to its size
+    bc -l <<< '(122880+5662720)/2/1024'
 
-        # on Linux, use the last partition block
-        bc -l <<< '(5785599+1)/2/1024'
+    # on Linux, use the last partition block
+    bc -l <<< '(5785599+1)/2/1024'
+    ```
 
 <!--
 If the image is going to be compressed straightaway, it's also possible to read and

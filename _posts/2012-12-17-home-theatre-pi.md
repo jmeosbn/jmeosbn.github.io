@@ -138,16 +138,16 @@ echo '%sudo  ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 sed -i '/\s\/boot\s/s/,noauto//' /etc/fstab
 
 # Update packages
-apt-get update && apt-get upgrade
+apt update && apt upgrade
 
 # Install some utilities and services
-apt-get install p7zip zip curl mediainfo avahi-daemon iw
+apt install p7zip zip curl mediainfo avahi-daemon iw
 
 # Install gcc compiler, dev tools
-apt-get install gcc make git-core
+apt install gcc make git-core
 
 # Install scripting tools
-apt-get install ruby ruby-dev ri libsqlite3-dev npm
+apt install ruby ruby-dev ri libsqlite3-dev npm
 # Fix node binary being named nodejs
 cd /usr/bin; sudo ln -s nodejs node; cd
 
@@ -172,7 +172,7 @@ nano /etc/hosts                  # replace the hostname
 The Pi doesn't have a real time clock, so it usually defaults to some point in the past until the time can be set correctly using the Internet.  To make the clock more consistent across power cycles, it can be initialised using the last recorded date and time.  *(note: previous distros required the [unabridged instructions](#fake-a-hardware-clock-unabridged).)*
 
 ```sh
-apt-get install fake-hwclock
+apt install fake-hwclock
 ```
 
 
@@ -244,7 +244,7 @@ sed -i '/ttyAMA0/s/vt100$/xterm/' /etc/inittab
 [WiringPi]: https://projects.drogon.net/raspberry-pi/wiringpi
 
 ```sh
-apt-get install gcc make git-core libi2c-dev
+apt install gcc make git-core libi2c-dev
 git clone git://git.drogon.net/wiringPi
 cd wiringPi; ./build
 
@@ -279,7 +279,7 @@ apt-get clean
 Install Mono development tools, runtime, and interactive shell.
 
 ```sh
-apt-get install mono-devel mono-csharp-shell
+apt install mono-devel mono-csharp-shell
 ```
 
 
@@ -302,7 +302,7 @@ make install
 ### Using Reaver
 
 ```sh
-apt-get install reaver
+apt install reaver
 
 # put wifi device into monitor mode
 airmon-ng start wlan0
@@ -327,7 +327,7 @@ Both XBian and Raspbian have system setup menus, but neither seem to setup the c
 
 ```sh
 # Packages needed to change keyboard layout
-apt-get install console-setup keyboard-configuration
+apt install console-setup keyboard-configuration
 
 # Configure keyboard settings
 dpkg-reconfigure keyboard-configuration
@@ -350,7 +350,7 @@ Follow the [dbox installation instructions][dbox] to set up the dropbox sdk deve
 
 
 ```sh
-apt-get install gcc make ruby ruby-dev libsqlite3-dev
+apt install gcc make ruby ruby-dev libsqlite3-dev
 gem install dbox
 ```
 
@@ -400,19 +400,19 @@ Stuff used infrequently, or currently being tested
 Some standard packages that are usually excluded from the xbian distro, as they are not required for use of xbmc only.
 
 ```sh
-apt-get install omxplayer
+apt install omxplayer
 
 # included on xbian >= 1.0b
-apt-get install psmisc usbutils
+apt install psmisc usbutils
 ```
 
 
 ### Other useful packages
 
 ```sh
-apt-get install fs2resize exfat-fuse
-apt-get install clang geany
-apt-get install sysv-rc-conf
+apt install fs2resize exfat-fuse
+apt install clang geany
+apt install sysv-rc-conf
 ```
 
 
@@ -518,7 +518,7 @@ hciconfig
 ### Testing PVR
 
 ```sh
-apt-get install vdr-plugin-dvbsddevice
+apt install vdr-plugin-dvbsddevice
 ```
 
 
@@ -527,7 +527,7 @@ apt-get install vdr-plugin-dvbsddevice
 Use 'motion' or 'fswebcam', motion may need a default cfg copying
 
 ```sh
-apt-get install motion
+apt install motion
 cp /etc/default/motion /etc/motion/motion.conf
 ```
 
@@ -598,7 +598,7 @@ More complicated instructions, as used on previous versions of XBian.
 ```sh
 touch /etc/init.d/hwclock.sh
 /etc/init.d/ntp restart
-apt-get install ntpdate fake-hwclock
+apt install ntpdate fake-hwclock
 ntpdate-debian
 dpkg-reconfigure tzdata
 sed -i 's/^exit 0/ntpdate-debian\nexit 0/g' /etc/rc.local
@@ -677,13 +677,13 @@ cd ..
 ```sh
 # do as root
 sudo -s
-apt-get install alsa-utils
+apt install alsa-utils
 modprobe snd_bcm2835
 # optionally set to headphone output
 # amixer cset numid=3 1
 # optionally restore to hdmi output
 # amixer cset numid=3 2
-apt-get install build-essential libssl-dev libcrypt-openssl-rsa-perl libao-dev libio-socket-inet6-perl libwww-perl avahi-utils pkg-config
+apt install build-essential libssl-dev libcrypt-openssl-rsa-perl libao-dev libio-socket-inet6-perl libwww-perl avahi-utils pkg-config
 wget https://github.com/albertz/shairport/zipball/master
 unzip master
 cd albertz-shairport-*
